@@ -1,0 +1,196 @@
+/* Reference styles for the Marsh vault, extracted from withmnemo.com.
+   Private-library world: ivory, racing green, brass, Libre Caslon.
+   The component references these class names; bring your own equivalents
+   if you re-theme it. */
+
+:root {
+  --ivory: #fbf7ef;
+  --ivory-deep: #f3ecdd;
+  --ink: #1e1c16;
+  --ink-soft: #6a6354;
+  --green: #1e4d3b;
+  --green-deep: #143528;
+  --brass: #9c7a3c;
+  --brass-soft: #b89a5e;
+  --line: #e0d7c3;
+  --line-soft: #eae2d1;
+  --ledger: #f6f1e4;
+}
+
+/* Engraved small-caps label — the library's eyebrow. Keeps the .smallcaps
+   class name; renders as Caslon small caps in brass, letterpress-quiet. */
+.smallcaps {
+  font-family: var(--font-caslon), Georgia, serif;
+  font-variant-caps: small-caps;
+  text-transform: lowercase;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--brass);
+}
+
+.chapter-no {
+  font-family: var(--font-caslon-display), Georgia, serif;
+  font-style: normal;
+  color: var(--brass);
+  font-weight: 400;
+}
+
+/* ————— Buttons & links ————— */
+
+.btn-wax {
+  display: inline-block;
+  background: var(--green);
+  color: var(--ivory);
+  font-family: var(--font-caslon), Georgia, serif;
+  font-variant-caps: small-caps;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 0.8rem 1.8rem;
+  border: 1px solid var(--green-deep);
+  border-radius: 2px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 160ms ease;
+}
+
+.btn-wax:hover { background: var(--green-deep); }
+
+.btn-wax[disabled] { opacity: 0.6; cursor: default; }
+
+/* ————— The bookplate (was: stamp / spec chip) ————— */
+
+.stamp {
+  display: inline-block;
+  font-family: var(--font-caslon), Georgia, serif;
+  font-variant-caps: small-caps;
+  text-transform: lowercase;
+  letter-spacing: 0.12em;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--green);
+  border: 1px solid var(--brass-soft);
+  outline: 1px solid var(--brass-soft);
+  outline-offset: 3px;
+  border-radius: 1px;
+  padding: 0.45rem 0.9rem;
+  background: var(--ledger);
+}
+
+/* ————— The memory ledger (was: dark terminal panes) ————————————————
+   Real product output presented as a letterpress ledger card: ivory
+   stock, engraved double border, green and brass inks, typewriter face.
+   This is the brand's signature device per the charter. */
+
+.panel {
+  background: var(--ledger);
+  color: var(--ink);
+  border: 1px solid var(--brass-soft);
+  outline: 1px solid var(--line);
+  outline-offset: 4px;
+  border-radius: 1px;
+  box-shadow: 0 1px 3px rgba(30, 28, 22, 0.07);
+  font-family: var(--font-courier), "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.panel .dim { color: var(--ink-soft); }
+
+.panel .green { color: var(--green); }
+
+.panel .blue { color: var(--green); font-weight: 700; }
+
+.panel .amber { color: var(--brass); }
+
+.panel-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.65rem 1.2rem;
+  border-bottom: 1px solid var(--brass-soft);
+  font-family: var(--font-caslon), Georgia, serif;
+  font-variant-caps: small-caps;
+  text-transform: lowercase;
+  letter-spacing: 0.12em;
+  font-size: 13px;
+  color: var(--brass);
+}
+
+/* The reveal surfaces once, quietly — a single restrained fade, in keeping
+   with the charter's near-zero motion. */
+.reveal-in { animation: reveal-in 520ms ease both; }
+
+.reveal-in { animation: none; }
+
+/* ————— Forms ————— */
+
+.field {
+  width: 100%;
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 1px;
+  padding: 0.8rem 0.95rem;
+  font-size: 16px;
+  font-family: var(--font-caslon), Georgia, serif;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 140ms ease;
+}
+
+.field:focus { border-color: var(--green); }
+
+.field::placeholder { color: color-mix(in srgb, var(--ink-soft) 55%, transparent); font-style: italic; }
+
+/* ————— Marginalia / the visit ledger ————— */
+
+.marginal {
+  font-family: var(--font-caslon), Georgia, serif;
+  font-style: italic;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+
+.marginal .wax { color: var(--green); }
+
+.note-card {
+  font-family: var(--font-courier), "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--ink);
+  background: var(--ledger);
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--brass);
+  padding: 0.5rem 0.75rem;
+}
+
+/* Matched words in a retrieved entry — a librarian's pencil, not a highlighter pen. */
+.hl {
+  background: transparent;
+  color: var(--green);
+  font-weight: 700;
+  border-bottom: 1px solid var(--brass);
+}
+
+/* The shelf — fifteen years as engraved year-tabs with entry ticks. */
+.shelf-year {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.shelf-year:hover .chapter-no { color: var(--green); }
+
+.shelf-ticks {
+  color: var(--brass);
+  font-size: 15px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
