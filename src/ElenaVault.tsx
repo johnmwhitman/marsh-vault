@@ -219,7 +219,6 @@ export default function ElenaVault() {
   // Going offline reveals immediately: the visitor is already testing us.
   const REVEAL_AT = 3;
   const revealed = asked >= REVEAL_AT || (offline && asked > 0);
-  const justRevealed = asked === REVEAL_AT;
 
   const years = useMemo(() => {
     const map = new Map<string, MemoryEntry[]>();
@@ -430,9 +429,7 @@ export default function ElenaVault() {
         {/* ——— The reveal — earned after three queries, or instantly offline ——— */}
         {revealed && (
           <div
-            className={`mt-6 border-t-[3px] border-double border-brass-soft pt-5 ${
-              justRevealed ? "reveal-in" : ""
-            }`}
+            className="mt-6 border-t-[3px] border-double border-brass-soft pt-5"
             role="note"
             aria-live="polite"
           >

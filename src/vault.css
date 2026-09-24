@@ -5,7 +5,6 @@
 
 :root {
   --ivory: #fbf7ef;
-  --ivory-deep: #f3ecdd;
   --ink: #1e1c16;
   --ink-soft: #6a6354;
   --green: #1e4d3b;
@@ -13,7 +12,6 @@
   --brass: #9c7a3c;
   --brass-soft: #b89a5e;
   --line: #e0d7c3;
-  --line-soft: #eae2d1;
   --ledger: #f6f1e4;
 }
 
@@ -58,27 +56,6 @@
 
 .btn-wax:hover { background: var(--green-deep); }
 
-.btn-wax[disabled] { opacity: 0.6; cursor: default; }
-
-/* ————— The bookplate (was: stamp / spec chip) ————— */
-
-.stamp {
-  display: inline-block;
-  font-family: var(--font-caslon), Georgia, serif;
-  font-variant-caps: small-caps;
-  text-transform: lowercase;
-  letter-spacing: 0.12em;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--green);
-  border: 1px solid var(--brass-soft);
-  outline: 1px solid var(--brass-soft);
-  outline-offset: 3px;
-  border-radius: 1px;
-  padding: 0.45rem 0.9rem;
-  background: var(--ledger);
-}
-
 /* ————— The memory ledger (was: dark terminal panes) ————————————————
    Real product output presented as a letterpress ledger card: ivory
    stock, engraved double border, green and brass inks, typewriter face.
@@ -101,8 +78,6 @@
 
 .panel .green { color: var(--green); }
 
-.panel .blue { color: var(--green); font-weight: 700; }
-
 .panel .amber { color: var(--brass); }
 
 .panel-titlebar {
@@ -119,12 +94,6 @@
   font-size: 13px;
   color: var(--brass);
 }
-
-/* The reveal surfaces once, quietly — a single restrained fade, in keeping
-   with the charter's near-zero motion. */
-.reveal-in { animation: reveal-in 520ms ease both; }
-
-.reveal-in { animation: none; }
 
 /* ————— Forms ————— */
 
@@ -153,8 +122,6 @@
   font-size: 15px;
   color: var(--ink-soft);
 }
-
-.marginal .wax { color: var(--green); }
 
 .note-card {
   font-family: var(--font-courier), "Courier New", monospace;
