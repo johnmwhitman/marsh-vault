@@ -1,0 +1,15 @@
+{
+  "name": "marsh-vault",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A client-side memory vault you can interrogate, entirely in your browser.",
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test:zero-network": "node --test test/zero-network.test.mjs",
+    "test": "npm run test:zero-network && npm run typecheck"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "typescript": "^5.7.3"
+  }
+}

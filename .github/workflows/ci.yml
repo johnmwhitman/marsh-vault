@@ -1,0 +1,62 @@
+name: CI
+
+"on":
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  zero-network-guard:
+    name: Zero-Network Leak Invariant
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Fast Shell Invariant Scan
+        run: |
+          echo "Scanning src/ for unauthorized network primitives..."
+          FORBIDDEN='(\bfetch\s*\(|\bwindow\.fetch\b|\bglobalThis\.fetch\b|\bXMLHttpRequest\b|\bWebSocket\b|\bEventSource\b|\bsendBeacon\b)'
+          VIOLATIONS=$(grep -nE "$FORBIDDEN" src/* || true)
+          if [ -n "$VIOLATIONS" ]; then
+            echo "::error::Zero-Network Invariant Violated! Network primitives found:"
+            echo "$VIOLATIONS"
+            exit 1
+          fi
+          echo "Fast scan passed: 0 network calls detected."
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Zero-Network Test Suite
+        run: node --test test/zero-network.test.mjs
+
+  typecheck:
+    name: TypeScript Typecheck
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install minimal devDependencies
+        run: npm ci --no-audit
+
+      - name: Run TypeScript typecheck
+        run: npm run typecheck
