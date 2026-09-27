@@ -56,7 +56,7 @@ jobs:
           cache: npm
 
       - name: Install minimal devDependencies
-        run: npm install --no-audit --prefer-offline
+        run: npm ci --no-audit
 
       - name: Run TypeScript typecheck
         run: npm run typecheck
