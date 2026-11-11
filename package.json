@@ -5,8 +5,9 @@
   "description": "A client-side memory vault you can interrogate, entirely in your browser.",
   "scripts": {
     "typecheck": "tsc --noEmit",
+    "test:unit": "node --test test/search.test.mjs",
     "test:zero-network": "node --test test/zero-network.test.mjs",
-    "test": "npm run test:zero-network && npm run typecheck"
+    "test": "npm run test:unit && npm run test:zero-network && npm run typecheck"
   },
   "devDependencies": {
     "@types/react": "^18.3.18",

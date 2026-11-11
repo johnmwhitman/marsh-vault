@@ -39,6 +39,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Run Unit Tests
+        run: node --test test/search.test.mjs
+
       - name: Run Zero-Network Test Suite
         run: node --test test/zero-network.test.mjs
 
