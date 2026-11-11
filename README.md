@@ -46,6 +46,25 @@ The component instruments its own thesis instead of asserting it:
   It's deliberately simple: the point isn't the ranking algorithm, it's where
   the ranking happens.
 
+## Tests
+
+The repository includes test suites built using Node.js's native test runner (`node:test`) and strict assertions (`node:assert/strict`) located in `test/`:
+
+- [`test/zero-network.test.mjs`](test/zero-network.test.mjs) — Invariant guard ensuring source files in `src/` contain no network primitives (such as `fetch`, `XMLHttpRequest`, `WebSocket`, `EventSource`, or `sendBeacon`).
+- `test/vault-data.test.mjs` — Test suite validating synthetic vault data integrity and structure.
+
+Run the test suite via npm:
+
+```bash
+npm test
+```
+
+You can also run the zero-network invariant test directly:
+
+```bash
+npm run test:zero-network
+```
+
 ## Colophon
 
 Built as the technology showcase for [Mnemo](https://withmnemo.com) — a local,
