@@ -6,7 +6,7 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test:zero-network": "node --test test/zero-network.test.mjs",
-    "test": "npm run test:zero-network && npm run typecheck"
+    "test": "node --test test/*.test.mjs && npm run typecheck"
   },
   "devDependencies": {
     "@types/react": "^18.3.18",
